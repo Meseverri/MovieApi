@@ -1,6 +1,7 @@
 require("dotenv").config();
 const express = require("express");
 const { connectDb } = require("./src/config/db");
+const { MoviesRouter } = require("./src/api/rutas/movies");
 
 const cloudinary = require("cloudinary").v2;
 
@@ -14,7 +15,7 @@ const app = express();
 app.use(express.json()); 
 connectDb();
 
-app.use("api/v1/movies",mo)
+app.use("api/v1/movies",MoviesRouter);
 app.use("*",(req,res)=>{
     res.status(404).json("Route not found")
 })
