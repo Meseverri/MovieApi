@@ -4,7 +4,9 @@
   },
   "dependencies": {
     "cloudinary": "^1.41.3",
+    "dotenv": "^16.4.5",
     "express": "^4.19.2",
+    "mongodb": "^6.7.0",
     "mongoose": "^8.4.3",
     "multer-storage-cloudinary": "^4.0.0"
   },
