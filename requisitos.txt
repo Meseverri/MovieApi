@@ -1,0 +1,29 @@
+Recuerda realizar este proyecto después de haber consumido la sesión 17: API REST FILES
+
+Este, lo podéis hacer de la temática que prefiráis siempre y cuando se cumplan los requisitos mínimos.
+
+Los criterios de evaluación son MÍNIMOS, siempre os invitamos a dar un paso más.
+
+IMPORTANTE! Recuerda también entregar tu .env para que podamos corregirlo con mayor facilidad
+
+La base de datos tiene que tener una IP pública, la mítica de 0.0.0.0/0 recordad ponerla.
+
+Para el README.md con la documentación del proyecto, os dejamos por aquí un recurso que utilizamos mucho para facilitar su creación: https://dillinger.io/
+
+Esta herramienta os permitirá ver en directo cómo se renderizará vuestro README, además de enseñaros cómo se hacen tablas, listas, etc.
+
+En este proyecto será importante "cuidar" nuestro cloudinary y que no se guarden imágenes que no están siendo utilizadas
+
+EL REPOSITORIO DE GITHUB DEBE ESTAR PÚBLICO PARA PODER REALIZAR LA CORRECCIÓN.
+
+
+Servidor con express
+Conexión a una base de datos de Mongo Atlas mediante mongoose
+Creación de dos modelos, ambos, con un campo que nos permita almacenar un archivo
+Una semilla que suba datos a una de las colecciones
+Una relación entre colecciones
+CRUD completo de todas las colecciones
+README.md con la documentación del proyecto, indicando los endpoints y que hace cada uno
+Subida de archivos mediante cloudinary a ambas colecciones
+Eliminación de archivos en cloudinary cuando se borra el dato en la BBDD
+Intento de reutilización del storage de cloudinary cambiando la carpeta (puede estar comentado)
