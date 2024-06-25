@@ -31,4 +31,4 @@ Este es un esquema de Mongoose para una colección de plataformas. Cada document
 - **logo**: Este es un campo de tipo `string` y es **obligatorio**. Representa la URL del logo de la plataforma.
 
 
-Por favor, ten en cuenta que todos los campos marcados como **obligatorios** deben estar presentes para que un documento sea válido en Mongoose.
+> Nota:Por favor, ten en cuenta que todos los campos marcados como **obligatorios** deben estar presentes para que un documento sea válido en Mongoose.
