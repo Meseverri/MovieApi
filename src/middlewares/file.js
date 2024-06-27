@@ -3,12 +3,14 @@ const cloudinary = require("cloudinary").v2;
 const { CloudinaryStorage } = require("multer-storage-cloudinary");
 
 const movieStorage = new CloudinaryStorage({
-  cloudinary,
+  cloudinary: cloudinary,
   params: {
     folder: "Movies",
     allowedFormats: ["jpg", "png", "jpeg", "gif", "webp"],
   },
 });
+
+const MovieUpload = multer({ storage: movieStorage });
 
 const plataformStorage = new CloudinaryStorage({
   cloudinary,
@@ -18,7 +20,6 @@ const plataformStorage = new CloudinaryStorage({
   },
 });
 
-const MovieUpload = multer({ movieStorage });
-const PlataformUpload = multer({ plataformStorage });
+const PlataformUpload = multer({ storage:plataformStorage });
 
-module.exports = { MovieUpload, PlataformUpload };
+module.exports = { MovieUpload,PlataformUpload };

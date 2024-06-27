@@ -13,4 +13,4 @@ const plataformSchema = new mongoose.Schema(
 );
 
 const Plataform=mongoose.model("Plataform",plataformSchema);
-module.exports=Plataform;
+module.exports={Plataform};

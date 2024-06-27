@@ -2,20 +2,16 @@ require("dotenv").config();
 const express = require("express");
 const { connectDb } = require("./src/config/db");
 const { MoviesRouter } = require("./src/api/rutas/movies");
-
+const { connectCludinary } = require("./src/config/claudinary");
 const cloudinary = require("cloudinary").v2;
 
-cloudinary.config({
-    cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
-    api_secret: process.env.CLOUDINARY_API_SECRET,
-    api_key: process.env.CLOUDINARY_API_KEY
-})
 
 const app = express();
 app.use(express.json()); 
 connectDb();
+connectCludinary();
 
-app.use("api/v1/movies",MoviesRouter);
+app.use("/api/v1/movies",MoviesRouter);
 app.use("*",(req,res)=>{
     res.status(404).json("Route not found")
 })
