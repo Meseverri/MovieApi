@@ -15,7 +15,7 @@ const MovieUpload = multer({ storage: movieStorage });
 const plataformStorage = new CloudinaryStorage({
   cloudinary,
   params: {
-    folder: "Plataform",
+    folder: "Plataforms",
     allowedFormats: ["jpg", "png", "jpeg", "gif", "webp"],
   },
 });
