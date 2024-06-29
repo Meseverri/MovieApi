@@ -3,9 +3,9 @@ const mongoose = require("mongoose");
 const movieSchema = new mongoose.Schema(
   {
     title: { type: String },
+    director: { type: String },
     year: { type: Number },
-    description: { type: String },
-    plataform: [{ type: mongoose.Types.ObjectId,ref:"Plataform" }],
+    plataform: { type: mongoose.Types.ObjectId,ref:"Plataform" },
     img: { type: String, trim: true },
   },
   {

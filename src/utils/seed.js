@@ -13,26 +13,41 @@ mongoose
   .then(async () => {
     await Movie.collection.drop();
     await Plataform.collection.drop();
-    // folderCleaner("Movies");
+    folderCleaner("Movies");
     folderCleaner("Plataforms");
     const plataformsList = [];
     for (let i = 0; i < plataformas.length; i++) {
       const plataform = plataformas[i];
       let { plaraformName, url, logo } = plataform;
-      logo = await creatImgClaudinary(logo, "Plataforms")
+      logo = await creatImgClaudinary(logo, "Plataforms");
 
       const newPlataform = new Plataform({
         plaraformName,
         url,
-        logo
+        logo,
       });
-    for(let i=0;i<classicMovies.length)
-      const plataformSaved = await newPlataform.save();
-      plataformsList.push(plataformSaved);
+        const plataformSaved = await newPlataform.save();
+        plataformsList.push(plataformSaved);
+  
     }
-    return plataformsList
-  }).then(async (ret)=>{
-    console.log( ret);  
+    for (let i = 0; i < classicMovies.length; i++) {
+      const { title, director, year, img, genre } = classicMovies[i];
+      const randomPlataform = plataformsList[i % plataformsList.length];
+      const posterImg = await creatImgClaudinary(img, "Movies");
+      const newMovie = new Movie({
+        title,
+        director,
+        year,
+        plataform:randomPlataform._id,
+        img:posterImg,
+      });
+
+        const movieSaved = await newMovie.save();
+        randomPlataform.movieList.push(movieSaved._id);
+        await Plataform.findByIdAndUpdate(randomPlataform._id,randomPlataform);
+    }
+
+
   })
   .catch((err) => console.log(`Error deleting data: ${err}`))
   .finally(() => mongoose.disconnect());
