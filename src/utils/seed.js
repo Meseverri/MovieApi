@@ -18,11 +18,11 @@ mongoose
     const plataformsList = [];
     for (let i = 0; i < plataformas.length; i++) {
       const plataform = plataformas[i];
-      let { plaraformName, url, logo } = plataform;
+      let { plataformName, url, logo } = plataform;
       logo = await creatImgClaudinary(logo, "Plataforms");
 
       const newPlataform = new Plataform({
-        plaraformName,
+        plataformName,
         url,
         logo,
       });

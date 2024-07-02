@@ -72,22 +72,22 @@ const classicMovies = [
 ];
 const plataformas = [
   {
-    plaraformName: "Disney Plus",
+    plataformName: "Disney Plus",
     url: "https://www.disneyplus.com",
     logo: "./src/utils/plataformAssets/logo_disney_plus.jpg",
   },
   {
-    plaraformName: "Netflix",
+    plataformName: "Netflix",
     url: "https://www.netflix.com",
     logo: "./src/utils/plataformAssets/logo_netflix.jpg",
   },
   {
-    plaraformName: "Max",
+    plataformName: "Max",
     url: "https://www.hbomax.com",
     logo: "./src/utils/plataformAssets/logo_max.jpg",
   },
   {
-    plaraformName: "Amazon Prime Video",
+    plataformName: "Amazon Prime Video",
     url: "https://www.primevideo.com",
     logo: "./src/utils/plataformAssets/logo_amazon_prime.jpg",
   },

@@ -41,7 +41,8 @@ Este es un esquema de Mongoose para una colección de plataformas. Cada document
 - `DELETE /movie/:movieId`: delete movie
 - `GET /movie/:movieId`: get movie by id
 - `GET /movie`: get all movies
-- `PUT /movie/:movieId`: update movie by id
+- `PUT /movie/:movieId/:plataformId?`: update movie by id and adds it to a plataform
+    >Note: plataform id is optional and to add a movie to a plataform you must use this route an **Not** update plataform 
 
 ### Plataforms
 - `POST /plataform`: create plataform 
@@ -51,7 +52,4 @@ Este es un esquema de Mongoose para una colección de plataformas. Cada document
 - `PUT /plataform/:plataformId`: update plataform by id
 
 
-## Middlewares
 
-### File middleware
--
