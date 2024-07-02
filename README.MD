@@ -12,9 +12,9 @@ Este es un esquema de Mongoose para una colección de películas. Cada documento
 
 - **year (Año)**: Este es un campo de tipo `number` y es **obligatorio**. Representa el año de lanzamiento de la película.
 
-- **image (Imagen)**: Este es un campo de tipo `string` y es **obligatorio**. Representa la URL de la imagen de la película.
+- **img (Imagen)**: Este es un campo de tipo `string` y es **obligatorio**. Representa la URL de la imagen de la película.
 
-- **genre (Género)**:__not implemented__ Este es un campo de tipo `string`. Representa el género de la película. Este campo no es obligatorio, por lo que algunas películas pueden no tener un género especificado.
+- __no implemententado__ **genre (Género)**:  Este es un campo de tipo `string`. Representa el género de la película. Este campo no es obligatorio, por lo que algunas películas pueden no tener un género especificado.
 
 - **plataformId**: Este es un campo de tipo `Mongose id` que contiene referencias a la plataforma en la que está disponible la película. Este campo no es obligatorio, por lo que algunas películas pueden no tener ninguna plataforma especificada.
 
