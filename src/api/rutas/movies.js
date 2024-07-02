@@ -7,7 +7,7 @@ MoviesRouter.post('/', MovieUpload.single('img'), createMovie);
 MoviesRouter.delete('/:movieId',deleteMovie);
 MoviesRouter.get('/:movieId',getMovie);
 MoviesRouter.get('/',getMovies);
-MoviesRouter.put("/:movieId/:plataformId",MovieUpload.single('img'),updateMovie)
+MoviesRouter.put("/:movieId/:plataformId?",MovieUpload.single('img'),updateMovie)
 
 
 

@@ -48,18 +48,23 @@ const updateMovie = async (req, res) => {
     if (year) updateFields.year = year;
     if (plataformId) {
       //En el caso de que haya un plataform id se aladira el id de la pelicula a la lista de peliculas
-      let plataform = await Plataform.findById(plataformId);
+      const plataform = await Plataform.findById(plataformId);
+      
+      
       if (movie.plataform) {
         // si ya existia  una plataforma se eliminara el id de la pelicula de la platafdorma antigua
-        plataform = await Plataform.findByIdAndUpdate(
+        await Plataform.findByIdAndUpdate(
           movie.plataform,
           {
             $pull: { movieList: movie._id },
           },
           { new: true }
         );
-      }
-      if (!plataform.movieList.includes(movie._id)) {
+        if (!plataform.movieList.includes(movie._id) ||plataformId!==movie.plataform ) {
+          plataform.movieList.push(movie._id);
+          await plataform.save();
+        }
+      }else{
         plataform.movieList.push(movie._id);
         await plataform.save();
       }
@@ -75,7 +80,7 @@ const updateMovie = async (req, res) => {
       movie._id,
       updateFields,
       { new: true }
-    );
+    ).populate("plataform");
     return res.status(200).json({ msg: "movie updated", movie: movieUpdated });
   } catch (error) {
     console.log(error);
