@@ -14,9 +14,9 @@ Este es un esquema de Mongoose para una colección de películas. Cada documento
 
 - **image (Imagen)**: Este es un campo de tipo `string` y es **obligatorio**. Representa la URL de la imagen de la película.
 
-- **genre (Género)**: Este es un campo de tipo `string`. Representa el género de la película. Este campo no es obligatorio, por lo que algunas películas pueden no tener un género especificado.
+- **genre (Género)**:__not implemented__ Este es un campo de tipo `string`. Representa el género de la película. Este campo no es obligatorio, por lo que algunas películas pueden no tener un género especificado.
 
-- **plataformId**: Este es un campo de tipo `array` que contiene referencias a los documentos de la plataforma en la que está disponible la película. Este campo no es obligatorio, por lo que algunas películas pueden no tener ninguna plataforma especificada.
+- **plataformId**: Este es un campo de tipo `Mongose id` que contiene referencias a la plataforma en la que está disponible la película. Este campo no es obligatorio, por lo que algunas películas pueden no tener ninguna plataforma especificada.
 
 ### Plataforms Schema
 
