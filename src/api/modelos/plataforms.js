@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const plataformSchema = new mongoose.Schema(
   {
-    plaraformName: { type: String },
+    plataformName: { type: String },
     movieList: [{ type: mongoose.Types.ObjectId, ref: "Movie" }],
     url: { type: String },
     logo: { type: String, trim: true },
@@ -12,5 +12,5 @@ const plataformSchema = new mongoose.Schema(
   }
 );
 
-const Plataform=mongoose.model("Plataform",plataformSchema);
+const Plataform=mongoose.model("Plataform",plataformSchema,"plataforms");
 module.exports={Plataform};
