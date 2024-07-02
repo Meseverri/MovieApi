@@ -18,18 +18,6 @@ const imgUrlParser=(url)=>{
     return public_id
 }
 
-// const creatImgClaudinary=(src,folder)=>{
-//     cloudinary.uploader.upload(
-//         src,{asset_folder:folder},
-//       ).then( (error, result)=> {
-//         if (error) {
-//           console.log(" creatImgClaudinary: Hubo un error al subir la imagen:", error);
-//         } else {
-//           console.log("creatImgClaudinary: Imagen subida correctamente. Resultado:", result.url);
-//           return result.url;
-//         }
-//       });
-// }
 
 const creatImgClaudinary = async (src, folder) => {
     try {
@@ -40,30 +28,22 @@ const creatImgClaudinary = async (src, folder) => {
       console.log("creatImgClaudinary: Hubo un error al subir la imagen:", error);
     }
   }
-const folderCleaner=(folder)=>{
-    cloudinary.api.resources( 
-        { type: "upload", asset_folder: folder  },
-        function (error, result) {
-          if (error) {
-            console.log("folderCleaner: Hubo un error al recuperar los recursos:", error);
-          } else {
-            result.resources.forEach( function (resource) {
-               cloudinary.uploader.destroy(
-                resource.public_id,
-                function (error, result) {
-                  if (error) {
-                    console.log("folderCleaner: Hubo un error al eliminar el recurso:", error);
-                  } else {
-                    console.log(
-                      "folderCleaner: Recurso eliminado correctamente. Resultado:",
-                      result
-                    );
-                  }
-                }
-              );
-            });
-          }
+
+const folderCleaner = async (folder) => {
+    try {
+      const result = await cloudinary.api.resources({ type: "upload", asset_folder: folder });
+      for (const resource of result.resources) {
+        try {
+            
+          const destroyResult = await cloudinary.uploader.destroy(resource.public_id);
+          console.log(folder + " folderCleaner: Recurso eliminado correctamente. Resultado:", destroyResult);
+        } catch (error) {
+          console.log(folder +" folderCleaner: Hubo un error al eliminar el recurso:", error);
         }
-      );
-}
+      }
+    } catch (error) {
+      console.log(folder + " folderCleaner: Hubo un error al recuperar los recursos:", error);
+    }
+  };
+  
 module.exports = { deleteImgCloudinary,folderCleaner,creatImgClaudinary}

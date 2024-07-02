@@ -13,8 +13,8 @@ mongoose
   .then(async () => {
     await Movie.collection.drop();
     await Plataform.collection.drop();
-    folderCleaner("Movies");
-    folderCleaner("Plataforms");
+    await folderCleaner("Movies");
+    await folderCleaner("Plataforms");
     const plataformsList = [];
     for (let i = 0; i < plataformas.length; i++) {
       const plataform = plataformas[i];
